@@ -1,31 +1,33 @@
 <template>
-  <table>
-    <label for="search">Search</label>
-    <input v-model="searchValue" id="search"/>
-    <thead>
-    <tr>
-      <th v-for="key in Object.keys(items.length ? items[0] : {})"
-          :key="key"
-          :class="{
+  <div>
+    <table>
+      <label for="search">Search</label>
+      <input v-model="searchValue" id="search"/>
+      <thead>
+        <tr>
+          <th v-for="key in Object.keys(items.length ? items[0] : {})"
+              :key="key"
+              :class="{
           'active': sortParams.column === key,
             'asc': sortParams.isAsc,
             'desc': !sortParams.isAsc}"
-          @click="() => {
+              @click="() => {
             sortParams.column = key;
             sortParams.isAsc = !sortParams.isAsc}">
-        {{titleFromKey(key)}}
-      </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr v-if="!items.length">{{noItemsMsg}}</tr>
-    <tr v-for="(item, index) in searchItems(items, filters)" :key="index">
-      <td v-for="key in item" :key="key">{{key}}</td>
-      <td @click="editItem(item)">edit</td>
-      <td @click="deleteItem(item)">delete</td>
-    </tr>
-    </tbody>
-  </table>
+            {{titleFromKey(key)}}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-if="!items.length">{{noItemsMsg}}</tr>
+        <tr v-for="(item, index) in searchItems(items, filters)" :key="index">
+          <td v-for="key in item" :key="key">{{key}}</td>
+          <td @click="editItem(item)">edit</td>
+          <td @click="deleteItem(item)">delete</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <script>
@@ -72,7 +74,6 @@ export default {
       });
     },
     sortItems(items) {
-      console.log(items);
       if (this.sortParams.column) {
         return items.sort((itemA, itemB) => {
           if (itemA[this.sortParams.column] < itemB[this.sortParams.column]) {
@@ -87,7 +88,6 @@ export default {
       return items;
     },
     searchItems(items, filters) {
-      console.log(items);
       if (this.searchValue) {
         return this.sortItems(items
           .filter(item => !filters.every(filter => !item[filter].toLowerCase()

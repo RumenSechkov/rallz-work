@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     activeItem: null,
+    showPopup: false,
     addressBook: {
       contacts: [],
       countryList: null,
