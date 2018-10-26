@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'AxisExtrabold';
+  src: url(/assets/fonts/Axis-Extrabold.otf) format('otf');
+}
+$font-source-sans-pro: 'Source Code Pro', sans-serif;
+$font-axis-extra-bold: 'AxisExtrabold', sans-serif;
+
+$color-white: rgba(255, 255, 255, 1);
+$color-grey: rgba(155, 155, 155, 1);
+$color-grey-blur: rgba(155, 155, 155, 0.8);
+$color-black: rgba(0, 0, 0, 1);
+$color-blue: rgba(0, 55, 254, 1);
+$color-green: rgba(155, 219, 52, 1);
+$color-yellow: rgba(255, 209, 0, 1);
+$color-red: rgba(252, 61, 61, 1);
+
+$background-color-black-blur: rgba(0, 0, 0, 0.5);
+
+$side-bar-size: 190px;

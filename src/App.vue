@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view id="view"/>
+    <aside id="side-bar"></aside>
   </div>
 </template>
 
@@ -37,22 +38,32 @@ export default {
 </script>
 
 <style lang="scss">
+  @import 'main';
+  html {
+    font-size: 18px;
+  }
   #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-family: $font-source-sans-pro;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
-  }
-
-  #nav {
-    padding: 30px;
-    a {
-      font-weight: bold;
-      color: #2c3e50;
-      &.router-link-exact-active {
-        color: #42b983;
-      }
+    #view {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: calc(100% - 190px);
+      margin-right: $side-bar-size;
+    }
+    #side-bar {
+      z-index: -1;
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: $side-bar-size;
+      background: url('assets/img/side-bar.png');
+      background-size: 340px;
     }
   }
 </style>

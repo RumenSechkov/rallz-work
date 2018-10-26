@@ -1,13 +1,13 @@
 <template>
-  <div class="edit-contact">
-    <Header text="Edit Contact"/>
+  <div>
+    <Header :text="$store.state.activeItem ? 'edit contact' : 'create contact'"/>
     <!--
     Providing the paths as props from outside, makes the component "not caring" where it
     will pull from or save to, the data needed other than the active item. This makes it
     easier to reuse it by calling it and configure it without opening its file.
     -->
     <Contact :paths="{view: 'ListContacts', store: 'addressBook.contacts'}"/>
-    <Footer text="Footer"/>
+    <Footer/>
   </div>
 </template>
 

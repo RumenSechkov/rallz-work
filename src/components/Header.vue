@@ -1,7 +1,9 @@
 <template>
-  <header>
-    <h1>{{text}}</h1>
-  </header>
+  <div>
+    <header>
+      <h1>{{text}}</h1>
+    </header>
+  </div>
 </template>
 
 <script>
@@ -14,7 +16,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  header {
-    color: #42b983;
+  @import '../main.scss';
+  h1 {
+    margin: 6rem auto 4rem auto;
+    font-family: $font-axis-extra-bold;
+    font-weight: 900;
+    text-transform: uppercase;
   }
 </style>
